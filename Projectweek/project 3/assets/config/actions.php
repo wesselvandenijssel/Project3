@@ -42,7 +42,7 @@ if( !empty($username) ) {
 if( !empty($password) ) {
  if( strlen($password) >= 5 && strlen($password) <= 32 ) {
    $valid['password'] = true;
-   $password = password_hash($password, PASSWORD_BCRYPT, ["cost"=>8]);
+   $password = password_hash($password, PASSWORD_DEFAULT);
    echo 'Password is OK!<br/>';
  }else{
    echo 'Password must be between 5 and 32 characters!<br/>';

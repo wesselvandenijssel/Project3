@@ -25,9 +25,14 @@ if( !empty($mail) ) {
 }
 // Validate username
 if( !empty($username) ) {
- if( strlen($username) >= 2 && strlen($username) <= 16 ) {
+  $sql = $con->query("SELECT nummer, username FROM gebruikers WHERE Username='$username'");
+  if ($sql->num_rows > 0) {
+    echo "Er is een dubbele gebruikersnaam<br>";
+  }
+elseif( strlen($username) >= 2 && strlen($username) <= 16 ) {
    if( !preg_match('/[^a-zA-Z\d_.]/', $username) ) {
      $valid['username'] = true;
+     
      echo 'Username is OK! <br/>';
    }else{
      echo 'Username can contain only letters!<br/>';

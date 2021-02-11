@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(isset($_SESSION["User"])){
+  header("location:../index.php");
+}
+
 require '../assets/config/config.php';
 $query = "SELECT * FROM `gebruikers`";
 $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(isset($_SESSION["User"])){
+}
+else{
+	header("location:../login");
+}
 require 'config.php';
 	// Plaats hier de code die zorgt voor een verbinding met de database
 
@@ -13,7 +19,7 @@ $plaats  = mysqli_real_escape_string($con, trim($_POST['field8']));
 $land = mysqli_real_escape_string($con, trim($_POST['field9']));
 $telefoonnummer = mysqli_real_escape_string($con, trim($_POST['field4']));
 $mail  = mysqli_real_escape_string($con, trim($_POST['field3']));
-$query = "INSERT INTO `gebruikers` (`voornaam`, `achternaam`, `plaats`,`straat`,`huisnummer`,`postcode`,`mail`,`telefoonnummer`,`land`) VALUES ('$voornaam','$achternaam','$plaats','$straat','$huisnummer','$postcode','$mail','$telefoonnummer','$land')";
+$query = "UPDATE `gebruikers` SET voornaam='$voornaam', achternaam='$achternaam', straat='$straat', huisnummer='$huisnummer', postcode='$postcode', plaats='$plaats', land='$land', telefoonnummer='$telefoonnummer', mail='$mail' WHERE username='{$_SESSION['User']}'";
 	$result = mysqli_query($con, $query) or die('Cannot insert data into database. '.mysqli_error($con));
 	if($result) {
 	  echo 'Data inserted into database.';

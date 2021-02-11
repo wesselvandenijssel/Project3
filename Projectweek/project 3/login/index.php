@@ -18,7 +18,11 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 		    $data = $sql->fetch_array();
 		    if (password_verify($password, $data['Password'])) {
 		        $msg = "You have been logged IN!";
-        } else {
+            session_start();            
+                $_SESSION['User'] = $_POST['username'];
+                header("location:../index.php");
+          }
+         else {
 			      $msg = "Er staat een fout in de inlog!";
         }
     } else {

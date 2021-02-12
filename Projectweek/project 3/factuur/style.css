@@ -1,8 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .form-style-1 {
-	margin:10px auto;
+	margin:20px auto;
 	max-width: 400px;
-	padding: 20px 12px 10px 20px;
-	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding: 	0px 22px 20px 30px;
+	font: 16px "roboto"
 }
 .form-style-1 li {
 	padding: 0;
@@ -29,31 +30,14 @@ select{
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	border:1px solid #BEBEBE;
-	padding: 7px;
+	border:none;
+	background: #f2f2f2;
+	padding: 18px;
 	margin:0px;
-    transition: 0;
-	-webkit-transition: all 0.30s ease-in-out;
-	-moz-transition: all 0.30s ease-in-out;
-	-ms-transition: all 0.30s ease-in-out;
-	-o-transition: all 0.30s ease-in-out;
+    
 	outline: none;	
 }
-.form-style-1 input[type=text]:focus, 
-.form-style-1 input[type=date]:focus,
-.form-style-1 input[type=datetime]:focus,
-.form-style-1 input[type=number]:focus,
-.form-style-1 input[type=search]:focus,
-.form-style-1 input[type=time]:focus,
-.form-style-1 input[type=url]:focus,
-.form-style-1 input[type=email]:focus,
-.form-style-1 textarea:focus, 
-.form-style-1 select:focus{
-	-moz-box-shadow: 0 0 8px #88D5E9;
-	-webkit-box-shadow: 0 0 8px #88D5E9;
-	box-shadow: 0 0 8px #88D5E9;
-	border: 1px solid #88D5E9;
-}
+
 .form-style-1 .field-divided{
 	width: 49%;
 }
@@ -68,18 +52,45 @@ select{
 	height: 100px;
 }
 .form-style-1 input[type=submit], .form-style-1 input[type=button]{
-	background: #4B99AD;
-	padding: 8px 15px 8px 15px;
-	border: none;
-	color: #fff;
+	font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #161616;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
 }
 .form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
-	background: #4691A4;
+	background: #7d7c7c;
 	box-shadow:none;
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
+	transition: 0.3s;
 }
 .form-style-1 .required{
 	color:red;
 }
-
+body {
+	background: #070706; /* fallback for old browsers */
+	background: -webkit-linear-gradient(right, #979797, #252524);
+	background: -moz-linear-gradient(right, #979797, #252524);
+	background: -o-linear-gradient(right, #979797, #252524);
+	background: linear-gradient(to left, #979797, #252524);
+}
+.box{ 
+	background: white;
+	margin: auto;
+	padding: 55px;
+	width: 300px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	justify-content: center;
+	margin-top: 50%;
+	
+}

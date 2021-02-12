@@ -44,8 +44,9 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 
 
 <div class="login-page">
-<?php if ($msg != "") echo $msg . "<br><br>"; ?>
+
   <div class="form">
+  <?php if ($msg != "") echo $msg . "<br><br>"; ?>
     <form class="login-form" method="post" action="index.php">
       <input type="text" class="form-control" name="username" placeholder="username"/>
       <input type="password" class="form-control" name="password" placeholder="password"/>

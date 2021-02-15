@@ -69,11 +69,33 @@ if($valid['mail'] && $valid['username'] && $valid['password']) {
 if( isset($_POST['upd']) ) {
 	$nummer = $_POST['id'];
 	$Voornaam = $_POST['Voornaam'];
-	$achternaam  = $_POST['Achternaam'];
-	$mail     = $_POST['Mail'];
-	$username  = $_POST['Username'];
-	$password  = password_hash($_POST['Password'], PASSWORD_BCRYPT, ["cost"=>8]);
-	$query  = "UPDATE `gebruikers` SET Voornaam='$Voornaam', achternaam='$achternaam', mail='$mail', username='$username', password='$password' WHERE Nummer=$nummer";
+	$Achternaam  = $_POST['Achternaam'];
+	$Mail     = $_POST['Mail'];
+	$Username  = $_POST['Username'];
+  	$Straat = $_POST['Straat'];
+  	$Huisnummer = $_POST['Huisnummer'];
+  	$Plaats = $_POST['Plaats'];
+  	$Postcode = $_POST['Postcode'];
+    $Land = $_POST['Land'];
+  	$Telefoonnummer = $_POST['Telefoonnummer'];
+  	$Admin = $_POST['Admin'];
+  	$Organisatornaam = $_POST['Organisatornaam'];
+  	$Events = $_POST['Events'];
+  	$foto = $_POST['foto'];
+  	$Begindatum = $_POST['Begindatum'];
+  	$Einddatum = $_POST['Einddatum'];
+  	$Begintijd = $_POST['Begintijd'];
+  	$Eindtijd = $_POST['Eindtijd'];
+  	$Naam = $_POST['Naam'];
+  	$Plaatsen = $_POST['Plaatsen'];
+  	$Prijs = $_POST['Prijs'];
+  	$Beschrijving = $_POST['Beschrijving'];
+  	$EventStraat = $_POST['EventStraat'];
+  	$EventHuisnummer = $_POST['EventHuisnummer'];
+  	$EventPlaats = $_POST['EventPlaats'];
+  	$EventPostcode = $_POST['EventPostcode'];
+
+	$query = "UPDATE `gebruikers` SET voornaam='$Voornaam', achternaam='$Achternaam', straat='$Straat', huisnummer='$Huisnummer', postcode='$Postcode', plaats='$Plaats', land='$Land', telefoonnummer='$Telefoonnummer', mail='$Mail', admin='$Admin', Organisatornaam='$Organisatornaam', Events='$Events', foto='$foto', Begindatum='$Begindatum', Einddatum='$Einddatum', Begintijd='$Begintijd', Eindtijd='$Eindtijd', Naam='$Naam', Plaatsen='$Plaatsen', Prijs='$Prijs', Beschrijving='$Beschrijving', EventStraat='$EventStraat', EventHuisnummer='$EventHuisnummer', EventPlaats='$EventPlaats', EventPostcode='$EventPostcode', mail='$Mail', Username='$Username' WHERE Nummer='$nummer'";
 	$result = mysqli_query($con, $query) or die('Cannot update data in database. '.mysqli_error($con));
 	$user   = mysqli_fetch_assoc($result);
 	if($result) header('Location:../../admin/admin.php');

@@ -28,7 +28,7 @@ tr:nth-child(even) {
 
 	<table>
 
-<tr> <th> Nummer </th> <th> Username </th> <th>Password</th> <th>Voornaam</th> <th>Achternaam</th> <th>Straat</th> <th>Huisnummer</th> <th>Plaats</th> <th>Postcode</th> <th>Mail</th> <th>Land</th> <th>Telefoonnummer</th><th>Admin</th><th>Organisatornaam</th><th>Events</th><th>foto</th><th>Begindatum</th><th>Einddatum</th><th>Begintijd</th><th>Eindtijd</th><th>Naam</th><th>Plaatsen</th><th>Prijs</th><th>Beschrijving</th><th>EventStraat</th><th>EventHuisnummer</th><th>EventPlaats</th><th>EventPostcode</th></tr>
+<tr> <th> Nummer </th> <th> Username </th> <th>Password</th> <th>Voornaam</th> <th>Achternaam</th> <th>Straat</th> <th>Huisnummer</th> <th>Plaats</th> <th>Postcode</th> <th>Mail</th> <th>Land</th> <th>Telefoonnummer</th><th>Admin</th>
 
 <?php
 
@@ -68,13 +68,11 @@ while($row = mysqli_fetch_assoc($result)){
   $EventPlaats = $row['EventPlaats'];
   $EventPostcode = $row['EventPostcode'];
 
-	echo "<tr>" . "<th>" . $nummer . "</th>" . "<th>" . $username . "</th>" . "<th>" . $password . "</th>" . "<th>". $Voornaam . "</th>" .  "<th>" . $Achternaam . "</th>" .  "<th>". $Straat . "</th>" . "<th>" . $Huisnummer . "</th>" . "<th>". $Plaats . "</th>" . "<th>". $Postcode . "</th>" . "<th>". $Mail . "</th>" . "<th>". $Land . "</th>" . "<th>". $Telefoonnummer. "<th>". $Admin . "</th>". "<th>". $Organisatornaam . "</th>". "<th>". $Events . "</th>". "<th>". $foto . "</th>". "<th>". $Begindatum . "</th>". "<th>". $Einddatum . "</th>". "<th>". $Begintijd . "</th>". "<th>". $Eindtijd . "</th>". "<th>". $Naam . "</th>". "<th>". $Plaatsen . "</th>". "<th>". $Prijs . "</th>". "<th>". $Beschrijving . "</th>". "<th>". $EventStraat . "</th>". "<th>". $EventHuisnummer . "</th>". "<th>". $EventPlaats . "</th>". "<th>". $EventPostcode . "</th>" . "</tr>";
+	echo "<tr>" . "<th>" . $nummer . "</th>" . "<th>" . $username . "</th>" . "<th>" . $password . "</th>" . "<th>". $Voornaam . "</th>" .  "<th>" . $Achternaam . "</th>" .  "<th>". $Straat . "</th>" . "<th>" . $Huisnummer . "</th>" . "<th>". $Plaats . "</th>" . "<th>". $Postcode . "</th>" . "<th>". $Mail . "</th>" . "<th>". $Land . "</th>" . "<th>". $Telefoonnummer. "<th>". $Admin . "</th>". "</tr>";
 }
 
 ?>
-
 </table>
 </div>
-
 </body>
 </html>

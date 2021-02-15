@@ -51,6 +51,7 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
       <input type="text" class="form-control" name="username" placeholder="username"/>
       <input type="password" class="form-control" name="password" placeholder="password"/>
       <button name="submit" type="submit">login</button>
+      <a href="forgot-password.php">Forgot password?</a>
       <p class="message">Not registered? <a href="../register/register.php">Create an account</a></p>
     </form>
   </div>

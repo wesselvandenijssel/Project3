@@ -63,22 +63,23 @@ if($valid['mail'] && $valid['username'] && $valid['password']) {
 	  mysqli_free_result($result);
 	  header('Location:../../index.php');
 	}
-   }	   
+   }	 
+}  
 // Check if update-form is submitted
-if( isset($_POST['btnupdate']) ) {
-	$id = $_GET['id'];
+if( isset($_POST['upd']) ) {
+	$nummer = $_POST['id'];
 	$Voornaam = $_POST['Voornaam'];
 	$achternaam  = $_POST['Achternaam'];
 	$mail     = $_POST['Mail'];
 	$username  = $_POST['Username'];
 	$password  = password_hash($_POST['Password'], PASSWORD_BCRYPT, ["cost"=>8]);
-	$query  = "UPDATE `gebruikers` SET Voornaam='$Voornaam', achternaam='$achternaam', mail='$mail', username='$username', password='$password' WHERE Nummer=$id";
+	$query  = "UPDATE `gebruikers` SET Voornaam='$Voornaam', achternaam='$achternaam', mail='$mail', username='$username', password='$password' WHERE Nummer=$nummer";
 	$result = mysqli_query($con, $query) or die('Cannot update data in database. '.mysqli_error($con));
 	$user   = mysqli_fetch_assoc($result);
-	if($result) header('Location:../../index.php');
+	if($result) header('Location:../../admin/admin.php');
 	
    }
-}
+
 	// Plaats hier de code die checkt of het sign-up formulier verzonden werd (submit). Nieuwe gebruiker aanmaken dus!
 	
 	// Plaats hier de code die checkt of er een DELETE moet plaatsvinden (verwijdering van gebruiker in de database)

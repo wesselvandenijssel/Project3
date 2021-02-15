@@ -10,6 +10,7 @@
 		$user   = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);
 		mysqli_close($con);
+		echo $id;
 	   }
 ?>
 <!DOCTYPE html>
@@ -28,7 +29,8 @@
 				<div class='col-lg-4 col-lg-offset-4'>
 					<h3>Update Data</h3>
 					<hr/>
-					<form name='update' id='update' action='../assets/config/actions.php?id=<?php echo $user['Nummer'] ?>' method='post'>
+					<form name='update' id='update' action='../assets/config/actions.php?id=<?php echo $user['Nummer'] ?>' method='POST'>
+						<input type="hidden" name="id" value="<?php echo $user['Nummer'] ?>">
 						<div class='form-group'>
 							<label for='Voornaam'>Voornaam</label>
 							<input value='<?php echo $user['Voornaam'] ?>' name='Voornaam' id='Voornaam' type='text' class='form-control' placeholder='firstname' />
@@ -50,7 +52,7 @@
 							<input name='Password' id='Password' type='Password' class='form-control' placeholder='Enter new password' />
 						</div>
 						<div class='form-group'>
-                            <button name='btnupdate' id='update' class='btn btn-primary btn-block'>Update</button>
+                            <button name='upd' id='upd' class='btn btn-primary btn-block'>Update</button>
 						</div>
 					</form>
 				</div>	

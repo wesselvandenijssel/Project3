@@ -2,7 +2,7 @@
 session_start();
 include "../assets/config/config.php";
 if(isset($_SESSION["User"])){
-	$sql = $con->query("SELECT * FROM gebruikers WHERE Admin >= 1 AND Username LIKE '%{$_SESSION['User']}%'");
+	$sql = $con->query("SELECT * FROM gebruikers WHERE organisator >= 1 AND Username LIKE '%{$_SESSION['User']}%'");
   if ($sql->num_rows >= 1) {
   }
   else{
@@ -41,7 +41,7 @@ if(isset($_SESSION["User"])){
 				<div class='col-lg-4 col-lg-offset-4'>
 					<h3>Update Data</h3>
 					<hr/>
-					<form name='updorganisator' id='updorganisator' action='../assets/config/actions.php?id=<?php echo $user['nummer'] ?>' method='post'>
+					<form name='adminorganisator' id='adminorganisator' action='../assets/config/actions.php?id=<?php echo $user['nummer'] ?>' method='post'>
 						<input type="hidden" name="id" value="<?php echo $user['nummer'] ?>">
 						<div class='form-group'>
 							<label for='Organisatornaam'>Organisatornaam</label>
@@ -105,7 +105,7 @@ if(isset($_SESSION["User"])){
 						</div>
 
 						<div class='form-group'>
-                            <button name='updorganisator' id='updorganisator' class='btn btn-primary btn-block'>Update</button>
+                            <button name='adminorganisator' id='adminorganisator' class='btn btn-primary btn-block'>Update</button>
 						</div>
 					</form>
 				</div>	

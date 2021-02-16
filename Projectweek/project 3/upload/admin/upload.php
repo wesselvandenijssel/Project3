@@ -23,7 +23,7 @@ if (isset($_FILES['image'])) {
         move_uploaded_file($file_tmp,$_SERVER['DOCUMENT_ROOT']."/project periode 3/upload/assets/upload/".$file_name);
 
         // Formuleer query
-        $sql = "INSERT INTO `gebruikers` (`foto`) VALUES ('{$file_name}')";
+        $sql = "INSERT INTO `events` (`foto`) VALUES ('{$file_name}')";
         // Poging uitvoeren query
         if ($conn->query($sql) === TRUE) {
             // Uitvoeren query gelukt

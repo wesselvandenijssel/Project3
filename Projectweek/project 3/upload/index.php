@@ -12,11 +12,11 @@ require_once('config/connect.php');
 </head>
 <body>
     <?php
-    $result = $conn->query("SELECT foto FROM gebruikers;");
+    $result = $conn->query("SELECT foto FROM events;");
     if ($result != false){
     while ($row = $result->fetch_assoc()){
         ?>
-        <img src="assets/upload/<?php echo $row['foto'];?>" alt"" style="width:300px;"/>
+        <img src="assets/upload/<?php echo $row['foto'];?>" alt="" style="width:300px;"/>
         <?php
     }
     $result->free();

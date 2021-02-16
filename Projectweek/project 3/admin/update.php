@@ -1,4 +1,16 @@
 <?php
+session_start();
+include "../assets/config/config.php";
+if(isset($_SESSION["User"])){
+	$sql = $con->query("SELECT * FROM gebruikers WHERE Admin >= 1 AND Username LIKE '%{$_SESSION['User']}%'");
+  if ($sql->num_rows >= 1) {
+  }
+  else{
+	header("location:../login");
+}
+}
+?>
+<?php
 	// Hier komt de code te staan die ervoor zorgt dat er een database-connectie is
 	require '../assets/config/config.php';
 
@@ -75,8 +87,14 @@
 							<label for='Admin'>Admin</label>
 							<input value='<?php echo $user['Admin'] ?>' name='Admin' id='Admin' type='text' class='form-control' placeholder='Admin' />
 						</div>
-						
-
+						<div class='form-group'>
+							<label for='Organisator'>Organisator</label>
+							<input value='<?php echo $user['organisator'] ?>' name='Organisator' id='Organisator' type='text' class='form-control' placeholder='Organisator' />
+						</div>
+						<div class='form-group'>
+							<label for='Code'>Code</label>
+							<input value='<?php echo $user['code'] ?>' name='Code' id='Code' type='text' class='form-control' placeholder='Code' />
+						</div>
 						<div class='form-group'>
                             <button name='upd' id='upd' class='btn btn-primary btn-block'>Update</button>
 						</div>

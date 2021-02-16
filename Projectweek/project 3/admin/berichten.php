@@ -1,3 +1,15 @@
+<?php
+session_start();
+include "../assets/config/config.php";
+if(isset($_SESSION["User"])){
+	$sql = $con->query("SELECT * FROM gebruikers WHERE Admin >= 1 AND Username LIKE '%{$_SESSION['User']}%'");
+  if ($sql->num_rows >= 1) {
+  }
+  else{
+	header("location:../login");
+}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +40,7 @@ tr:nth-child(even) {
 
 	<table>
 
-<tr> <th> Nummer </th> <th> Username </th> <th>Password</th> <th>Voornaam</th> <th>Achternaam</th> <th>Straat</th> <th>Huisnummer</th> <th>Plaats</th> <th>Postcode</th> <th>Mail</th> <th>Land</th> <th>Telefoonnummer</th><th>Admin</th>
+<tr> <th> Nummer </th> <th> Username </th> <th>Password</th> <th>Voornaam</th> <th>Achternaam</th> <th>Straat</th> <th>Huisnummer</th> <th>Plaats</th> <th>Postcode</th> <th>Mail</th> <th>Land</th> <th>Telefoonnummer</th><th>Admin</th><th>Organisator</th><th>Code</th>
 
 <?php
 
@@ -52,23 +64,10 @@ while($row = mysqli_fetch_assoc($result)){
   $Land = $row['Land'];
   $Telefoonnummer = $row['Telefoonnummer'];
   $Admin = $row['Admin'];
-  $Organisatornaam = $row['Organisatornaam'];
-  $Events = $row['Events'];
-  $foto = $row['foto'];
-  $Begindatum = $row['Begindatum'];
-  $Einddatum = $row['Einddatum'];
-  $Begintijd = $row['Begintijd'];
-  $Eindtijd = $row['Eindtijd'];
-  $Naam = $row['Naam'];
-  $Plaatsen = $row['Plaatsen'];
-  $Prijs = $row['Prijs'];
-  $Beschrijving = $row['Beschrijving'];
-  $EventStraat = $row['EventStraat'];
-  $EventHuisnummer = $row['EventHuisnummer'];
-  $EventPlaats = $row['EventPlaats'];
-  $EventPostcode = $row['EventPostcode'];
+  $Organisator = $row['organisator'];
+  $Code = $row['code'];
 
-	echo "<tr>" . "<th>" . $nummer . "</th>" . "<th>" . $username . "</th>" . "<th>" . $password . "</th>" . "<th>". $Voornaam . "</th>" .  "<th>" . $Achternaam . "</th>" .  "<th>". $Straat . "</th>" . "<th>" . $Huisnummer . "</th>" . "<th>". $Plaats . "</th>" . "<th>". $Postcode . "</th>" . "<th>". $Mail . "</th>" . "<th>". $Land . "</th>" . "<th>". $Telefoonnummer. "<th>". $Admin . "</th>". "</tr>";
+	echo "<tr>" . "<th>" . $nummer . "</th>" . "<th>" . $username . "</th>" . "<th>" . $password . "</th>" . "<th>". $Voornaam . "</th>" .  "<th>" . $Achternaam . "</th>" .  "<th>". $Straat . "</th>" . "<th>" . $Huisnummer . "</th>" . "<th>". $Plaats . "</th>" . "<th>". $Postcode . "</th>" . "<th>". $Mail . "</th>" . "<th>". $Land . "</th>" . "<th>". $Telefoonnummer . "</th>" . "<th>" . $Admin . "</th>". "<th>" . $Organisator . "</th>" . "<th>" . $Code . "</th>" . "</tr>";
 }
 
 ?>

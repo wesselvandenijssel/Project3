@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'assets/config/config.php';
+require '../assets/config/config.php';
 if(isset($_SESSION["User"])){
 }
 else{

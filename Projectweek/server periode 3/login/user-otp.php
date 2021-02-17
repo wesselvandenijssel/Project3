@@ -2,10 +2,10 @@
 session_start();
 require_once "controllerUserData.php"; ?>
 <?php 
-$mail = $_SESSION['mail'];
-if($mail == false){
+$Mail = $_SESSION['Mail'];
+if($Mail == false){
   //header('Location: login-user.php');
-  echo("<script>location.href = 'index.php';</script>");
+  //echo("<script>location.href = 'login-user.php';</script>");
 }
 ?>
 <!DOCTYPE html>

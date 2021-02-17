@@ -40,7 +40,7 @@ require_once('upload/config/connect.php');
     if ($result != false){
     while ($row = $result->fetch_assoc()){
         ?>
-    <img src="upload/assets/upload/<?php echo $row['foto'];?>" alt="" style="width:200px;" />
+        <img src="upload/assets/upload/<?php echo $row['foto'];?>" alt="" style="width:200px;" />
     <?php
     }
     $result->free();

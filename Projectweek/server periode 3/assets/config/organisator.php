@@ -60,7 +60,8 @@ if (isset($_FILES['image'])) {
 	if($result) {
 	  echo 'Data inserted into database.';
 	  mysqli_free_result($result);
-	  header('Location:../../index.php');
+	  //header('Location:../../index.php');
+      echo("<script>location.href = '../../index.php';</script>");
 	}
         }
         // Afsluiten verbinding

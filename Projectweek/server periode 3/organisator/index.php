@@ -6,7 +6,8 @@ if(isset($_SESSION["User"])){
   if ($sql->num_rows >= 1) {
   }
   else{
-	header("location:../login");
+	//header("location:../login");
+    echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>

@@ -6,8 +6,9 @@ if(isset($_SESSION["User"])){
   if ($sql->num_rows >= 1) {
   }
   else{
-	header("location:../login");
-  exit;
+	//header("location:../login");
+  //exit;
+  echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>
@@ -21,8 +22,9 @@ $selection_id = $_POST['idsorganisator'];
 
 $result = mysqli_query($con, $sql_statement);
 
-header ("Location: updateorganisator.php?upd=$selection_id");
-exit;
+//header ("Location: updateorganisator.php?upd=$selection_id");
+//exit;
+echo("<script>location.href = 'updateorganisator.php?upd=$selection_id';</script>");
 
 }
 else

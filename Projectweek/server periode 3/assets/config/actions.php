@@ -61,8 +61,8 @@ if($valid['mail'] && $valid['username'] && $valid['password']) {
 	if($result) {
 	  echo 'Data inserted into database.';
 	  mysqli_free_result($result);
-	  header('Location:../../index.php');
-	  exit;
+	  echo("<script>location.href = '../../index.php';</script>");
+	  //exit;
 	}
    }	 
 }  
@@ -87,7 +87,7 @@ if( isset($_POST['upd']) ) {
 	$query = "UPDATE `gebruikers` SET voornaam='$Voornaam', achternaam='$Achternaam', straat='$Straat', huisnummer='$Huisnummer', postcode='$Postcode', plaats='$Plaats', land='$Land', telefoonnummer='$Telefoonnummer', mail='$Mail', admin='$Admin', organisator='$Organisator', code='$Code', Username='$Username' WHERE Nummer='$nummer'";
 	$result = mysqli_query($con, $query) or die('Cannot update data in database. '.mysqli_error($con));
 	$user   = mysqli_fetch_assoc($result);
-	if($result) header('Location:../../admin/admin.php');
+	if($result) echo("<script>location.href = '../../admin/admin.php';</script>");
 }
    
    if( isset($_POST['updorganisator']) ) {
@@ -111,7 +111,7 @@ if( isset($_POST['upd']) ) {
 	$query = "UPDATE `events` SET Organisatornaam='$Organisatornaam', Events='$Events', foto='$foto', Begindatum='$Begindatum', Einddatum='$Einddatum', Begintijd='$Begintijd', Eindtijd='$Eindtijd', Naam='$Naam', Plaatsen='$Plaatsen', Prijs='$Prijs', Beschrijving='$Beschrijving', EventStraat='$EventStraat', EventHuisnummer='$EventHuisnummer', EventPlaats='$EventPlaats', EventPostcode='$EventPostcode' WHERE Nummer='$nummer'";
 	$result = mysqli_query($con, $query) or die('Cannot update data in database. '.mysqli_error($con));
 	$user   = mysqli_fetch_assoc($result);
-	if($result) header('Location:../../admin/admin.php');
+	if($result) echo("<script>location.href = '../../admin/admin.php';</script>");
 	exit;
 	
    }
@@ -137,7 +137,7 @@ if( isset($_POST['upd']) ) {
 	$query = "UPDATE `events` SET Organisatornaam='$Organisatornaam', Events='$Events', foto='$foto', Begindatum='$Begindatum', Einddatum='$Einddatum', Begintijd='$Begintijd', Eindtijd='$Eindtijd', Naam='$Naam', Plaatsen='$Plaatsen', Prijs='$Prijs', Beschrijving='$Beschrijving', EventStraat='$EventStraat', EventHuisnummer='$EventHuisnummer', EventPlaats='$EventPlaats', EventPostcode='$EventPostcode' WHERE Nummer='$nummer'";
 	$result = mysqli_query($con, $query) or die('Cannot update data in database. '.mysqli_error($con));
 	$user   = mysqli_fetch_assoc($result);
-	if($result) header('Location:../../organisator/organisator.php');
+	if($result) echo("<script>location.href = '../../organisator/organisator.php';</script>");
 	exit;
 	
    }

@@ -4,7 +4,7 @@ require_once "controlleruserdata.php"; ?>
   <?php
 if($_SESSION['info'] == false){
    // header('Location: login-user.php');  
-   echo("<script>location.href = 'index.php';</script>");
+   //echo("<script>location.href = 'login-user.php';</script>");
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ if($_SESSION['info'] == false){
                 <?php
             }
             ?>
-                <form action="login-user.php" method="POST">
+                <form action="index.php" method="POST">
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="login-now" value="Login Now">
                     </div>

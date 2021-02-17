@@ -19,9 +19,10 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 		    $data = $sql->fetch_array();
 		    if (password_verify($password, $data['Password'])) {           
                 $_SESSION['User'] = $_POST['username'];
-		      header("location:../index.php");  
-          //$msg = "You have been logged IN!";
-          exit;
+		      //header("location:../index.php");  
+                $msg = "You have been logged IN!";
+                echo("<script>location.href = '../index.php';</script>");
+          //exit;
           }
          else {
 			      $msg = "Er staat een fout in de inlog!";
@@ -53,7 +54,7 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
             <form class="login-form" method="post" action="index.php">
                 <input type="text" class="form-control" name="username" placeholder="username" />
                 <input type="password" class="form-control" name="password" placeholder="password" />
-                <button name="submit" type="submit">login</button>
+                <button name="signup" type="signup">login</button>
                 <a href="forgot-password.php">Forgot password?</a>
                 <p class="message">Not registered? <a href="../register/register.php">Create an account</a></p>
             </form>

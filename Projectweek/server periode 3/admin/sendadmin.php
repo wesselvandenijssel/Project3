@@ -6,8 +6,9 @@ if(isset($_SESSION["User"])){
   if ($sql->num_rows >= 1) {
   }
   else{
-	header("location:../login");
-  exit;
+	//header("location:../login");
+  //exit;
+  echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>
@@ -23,8 +24,9 @@ $sql_statement = "DELETE FROM gebruikers WHERE nummer = $selection_id";
 
 $result = mysqli_query($con, $sql_statement);
 
-header ("Location: admin.php");
-exit;
+//header ("Location: admin.php");
+//exit;
+echo("<script>location.href = 'admin.php';</script>");
 
 }
 else

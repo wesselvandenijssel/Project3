@@ -2,10 +2,10 @@
 session_start();
 require_once "controlleruserdata.php"; ?>
 <?php 
-$mail = $_SESSION['mail'];
+$Mail = $_SESSION['Mail'];
 $password = $_SESSION['password'];
-if($mail != false && $password != false){
-    $sql = "SELECT * FROM gebruikers WHERE mail = '$mail'";
+if($Mail != false && $password != false){
+    $sql = "SELECT * FROM gebruikers WHERE Mail = '$Mail'";
     $run_Sql = mysqli_query($con, $sql);
     if($run_Sql){
         $fetch_info = mysqli_fetch_assoc($run_Sql);
@@ -13,17 +13,20 @@ if($mail != false && $password != false){
         $code = $fetch_info['code'];
         if($status == "verified"){
             if($code != 0){
-                header('Location: reset-code.php');
-                exit;
+                //header('Location: reset-code.php');
+                //exit;
+                echo("<script>location.href = 'reset-code.php';</script>");
             }
         }else{
-            header('Location: user-otp.php');
-            exit;
+            //header('Location: user-otp.php');
+            //exit;
+            echo("<script>location.href = 'user-otp.php';</script>");
         }
     }
 }else{
-    header('Location: login-user.php');
-    exit;
+    //header('Location: login-user.php');
+    //exit;
+    //echo("<script>location.href = 'login-user.php';</script>");
 }
 ?>
 <!DOCTYPE html>

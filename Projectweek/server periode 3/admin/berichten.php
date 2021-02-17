@@ -1,13 +1,13 @@
 <?php
-session_start();
 include "../assets/config/config.php";
 if(isset($_SESSION["User"])){
 	$sql = $con->query("SELECT * FROM gebruikers WHERE Admin >= 1 AND Username LIKE '%{$_SESSION['User']}%'");
   if ($sql->num_rows >= 1) {
   }
   else{
-	header("location:../login");
-  exit;
+	//header("location:../login");
+  //exit;
+  echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>

@@ -3,7 +3,8 @@ session_start();
 if(isset($_SESSION["User"])){
 }
 else{
-	header("location:../login");
+	//header("location:../login");
+	echo("<script>location.href = '../../login/index.php';</script>");
 }
 require 'config.php';
 	// Plaats hier de code die zorgt voor een verbinding met de database
@@ -24,7 +25,8 @@ $query = "UPDATE `gebruikers` SET voornaam='$voornaam', achternaam='$achternaam'
 	if($result) {
 	  echo 'Data inserted into database.';
 	  mysqli_free_result($result);
-	  header('Location:../../index.php');
+	  //header('Location:../../index.php');
+	  echo("<script>location.href = '../../index.php';</script>");
 	}
 }
 ?>

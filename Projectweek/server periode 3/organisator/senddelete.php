@@ -6,7 +6,8 @@ if(isset($_SESSION["User"])){
   if ($sql->num_rows >= 1) {
   }
   else{
-	header("location:../login");
+	//header("location:../login");
+  echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>
@@ -23,7 +24,8 @@ $sql_statement = "DELETE FROM events WHERE nummer = $selection_id";
 
 $result = mysqli_query($con, $sql_statement);
 
-header ("Location: organisator.php");
+//header ("Location: organisator.php");
+echo("<script>location.href = 'organisator.php';</script>");
 
 }
 else

@@ -5,6 +5,8 @@ $mail = "";
 $username = "";
 $errors = array();
 
+ini_set("SMTP","smtp.gmail.com");
+ini_set("sendmail_from","<wesselvandenijsselxampp@gmail.com>@gmail.com>");
 //if user signup button
 if(isset($_POST['signup'])){
     $username = mysqli_real_escape_string($con, $_POST['username']);
@@ -29,7 +31,7 @@ if(isset($_POST['signup'])){
         if($data_check){
             $subject = "Email Verification Code";
             $message = "Your verification code is $code";
-            $sender = "From: shahiprem7890@gmail.com";
+            $sender = "From: wesselvandenijsselxampp@gmail.com";
             if(mail($mail, $subject, $message, $sender)){
                 $info = "We've sent a verification code to your email - $mail";
                 $_SESSION['info'] = $info;
@@ -114,9 +116,9 @@ if(isset($_POST['signup'])){
             if($run_query){
                 $subject = "Password Reset Code";
                 $message = "Your password reset code is $code";
-                $sender = "From: shahiprem7890@gmail.com";
+                $sender = "From: wesselvandenijsselxampp@gmail.com";
                 if(mail($mail, $subject, $message, $sender)){
-                    $info = "We've sent a passwrod reset otp to your mail - $mail";
+                    $info = "We've sent a password reset to your mail - $mail";
                     $_SESSION['info'] = $info;
                     $_SESSION['mail'] = $email;
                     header('location: reset-code.php');

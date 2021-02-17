@@ -4,8 +4,9 @@ require '../assets/config/config.php';
 if(isset($_SESSION["User"])){
 }
 else{
-	header("location:login");
-    exit;
+	//header("location:login");
+    //exit;
+    echo("<script>location.href = '../login/index.php';</script>");
 }
 $query = "SELECT * FROM `gebruikers`";
 $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));

@@ -26,7 +26,7 @@
                         }
                     ?>
                     <div class="form-group">
-                        <input class="form-control" type="mail" name="mail" placeholder="Enter email address" required value="<?php echo $mail ?>">
+                        <input class="form-control" type="Mail" name="Mail" placeholder="Enter email address" required value="<?php echo $Mail ?>">
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="check-email" value="Continue">

@@ -7,7 +7,7 @@ if(isset($_SESSION["User"])){
   }
   else{
 	//header("location:../login");
-  echo("<script>location.href = '../index.php';</script>");
+  echo("<script>location.href = '../login/index.php';</script>");
 }
 }
 ?>

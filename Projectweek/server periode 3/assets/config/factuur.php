@@ -26,7 +26,18 @@ $query = "UPDATE `gebruikers` SET voornaam='$voornaam', achternaam='$achternaam'
 	  echo 'Data inserted into database.';
 	  mysqli_free_result($result);
 	  //header('Location:../../index.php');
-	  echo("<script>location.href = '../../index.php';</script>");
+	  //echo("<script>location.href = '../../index.php';</script>");
 	}
+	if( isset($_GET['upd']) ) {
+		$id=$_GET['upd'];
+	$query = "UPDATE `events` SET Plaatsen = Plaatsen -1  WHERE nummer='$id'";
+		$result = mysqli_query($con, $query) or die('Cannot insert data into database. '.mysqli_error($con));
+		 if($result) {
+		   echo 'Data inserted into database.';
+		   mysqli_free_result($result);
+		   echo("<script>location.href = '../../index.php';</script>");
+
+		 }
+		   }
 }
 ?>

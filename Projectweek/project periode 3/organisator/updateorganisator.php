@@ -22,7 +22,6 @@ if(isset($_SESSION["User"])){
 		$user   = mysqli_fetch_assoc($result);
 		mysqli_free_result($result);
 		mysqli_close($con);
-		echo $id;
 	   }
 ?>
 <!DOCTYPE html>

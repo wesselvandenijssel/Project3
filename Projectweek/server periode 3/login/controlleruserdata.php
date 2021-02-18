@@ -5,8 +5,8 @@ $Mail = "";
 $username = "";
 $errors = array();
 
-ini_set("SMTP","smtp.gmail.com");
-ini_set("sendmail_from","<wesselvandenijsselxampp@gmail.com>@gmail.com>");
+//ini_set("SMTP","smtp.gmail.com");
+//ini_set("sendmail_from","<wesselvandenijsselxampp@gmail.com>@gmail.com>");
 //if user signup button
 if(isset($_POST['signup'])){
     $username = mysqli_real_escape_string($con, $_POST['username']);
@@ -31,7 +31,7 @@ if(isset($_POST['signup'])){
         if($data_check){
             $subject = "Email Verification Code";
             $message = "Your verification code is $code";
-            $sender = "From: wesselvandenijsselxampp@gmail.com";
+            $sender = "From: test@gmail.com";
             if(Mail($Mail, $subject, $message, $sender)){
                 $info = "We've sent a verification code to your email - $Mail";
                 $_SESSION['info'] = $info;

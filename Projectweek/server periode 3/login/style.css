@@ -111,3 +111,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
+
+
+@media screen and (max-width: 758px){ 
+	body { 
+    background: -webkit-linear-gradient(right, #979797, #252524);
+    background: -moz-linear-gradient(right, #979797, #252524);
+    background: -o-linear-gradient(right, #979797, #252524);
+    background: linear-gradient(to left, #979797, #252524);
+	}
+	.form{ 
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 70%;
+    margin-left: 2.5%;
+    padding: 5%;
+    margin-top: 20%;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+		
+	}
+	
+	
+}

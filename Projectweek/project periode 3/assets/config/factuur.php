@@ -7,7 +7,6 @@ else{
 }
 require 'config.php';
 	// Plaats hier de code die zorgt voor een verbinding met de database
-
 	if( isset($_POST['submit']) ) {
 	// Get POST values
 $voornaam = mysqli_real_escape_string($con, trim($_POST['field1']));
@@ -24,7 +23,17 @@ $query = "UPDATE `gebruikers` SET voornaam='$voornaam', achternaam='$achternaam'
 	if($result) {
 	  echo 'Data inserted into database.';
 	  mysqli_free_result($result);
-	  header('Location:../../index.php');
+	  //header('Location:../../index.php');
 	}
+	if( isset($_GET['upd']) ) {
+	$id=$_GET['upd'];
+	$query = "UPDATE `events` SET Plaatsen = Plaatsen -1  WHERE nummer='$id'";
+	$result = mysqli_query($con, $query) or die('Cannot insert data into database. '.mysqli_error($con));
+	 if($result) {
+	   echo 'Data inserted into database.';
+	   mysqli_free_result($result);
+		header('Location:../../index.php');
+	 }
+	   }
 }
 ?>

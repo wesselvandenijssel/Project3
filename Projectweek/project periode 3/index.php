@@ -1,13 +1,11 @@
 <?php 
-session_start();  
+session_start();
+require 'assets/config/config.php';
 if(isset($_SESSION["User"])){
 }
 else{
-	//header("location:login");
-    echo("<script>location.href = 'login/index.php';</script>");
-    //exit;
+	header("location:login");
 }
-require 'assets/config/config.php';
 $query = "SELECT * FROM `gebruikers`";
 $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));
 ?>

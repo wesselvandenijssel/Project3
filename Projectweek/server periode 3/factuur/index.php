@@ -10,6 +10,7 @@ else{
 }
 $query = "SELECT * FROM `gebruikers`";
 $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));
+$nummer = $_GET['upd'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +24,7 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 <body>
     
 
-<form name='form' id='form' action='../assets/config/factuur.php' method='post'>
+<form name='form' id='form' action='../assets/config/factuur.php?upd=<?php echo $nummer?>' method='post'>
 <ul class="form-style-1">
 <div class="box">
     <li><label>volledige naam <span class="required">*</span></label><input required type="text" name="field1" class="field-divided" placeholder="voornaam" /> <input required type="text" name="field2" class="field-divided" placeholder="achternaam" /></li>
@@ -41,7 +42,7 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
         <label>land <span class="required">*</span></label> 
         <select name="field9" class="field-select">
         <option value="Nederland">Nederland</option>
-        <option value="België">België</option>
+        <option value="België">Belgie</option>
         <option value="Duitsland">Duitsland</option>
         </select>
     </li>

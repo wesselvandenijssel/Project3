@@ -98,7 +98,17 @@ while($row = mysqli_fetch_assoc($result)){
                 <p><?php echo $Prijs;?> </p>
             </div>
             <div class="button">
+            <?php 
+            if ($Plaatsen <= 0){
+            ?> <p style="color: red;"><a  href="../index.php" type="button" value="Bestellen" placeholder="Bestellen">Uitverkocht!</a></p>
+            <?php
+            }
+            else{
+            ?>
                 <a  href="../factuur/index.php?upd=<?php echo $id?>" type="button" value="Bestellen" placeholder="Bestellen">Bestellen</a>
+                <?php
+            }
+            ?>
             </div>
         </div>
     </div>

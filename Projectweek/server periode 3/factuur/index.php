@@ -8,9 +8,6 @@ else{
     //exit;
     echo("<script>location.href = '../login/index.php';</script>");
 }
-$query = "SELECT * FROM `gebruikers`";
-$result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));
-    $nummer = $_GET['upd'];
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +23,20 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 
 <body>
     <?php
+    $id = $_GET['upd'];
+    $sql_statement = "SELECT * FROM events WHERE nummer = $id";
+    $result = mysqli_query($con, $sql_statement);
+    //$result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));
+    while($row = mysqli_fetch_assoc($result)){
+    $Organisatornaam = $row['Organisatornaam'];
+    $Events = $row['Events'];
+    }
+    //var_dump($result);
 ?>
-    <form name='form' id='form' action='../assets/config/factuur.php?upd=<?php echo $nummer?>' method='post'>
+    <form name='form' id='form' action='../assets/config/factuur.php?upd=<?php echo $id;?>' method='post'>
         <ul class="form-style-1">
             <div class="box">
-            <h1> factuur pagina </h1>
+            <h1> factuur pagina voor <?php echo $Events . ' van ' . $Organisatornaam;?></h1>
                 <li><label>volledige naam <span class="required">*</span></label><input required type="text"
                         name="field1" class="field-divided" placeholder="voornaam" /> <input required type="text"
                         name="field2" class="field-divided" placeholder="achternaam" /></li>

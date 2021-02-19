@@ -1,7 +1,7 @@
-<?php 
+<?php  // start de sessie en kijk of je bent ingelogd
 session_start();
 if(isset($_SESSION["User"])){
-  header("location:../index.php");
+  echo("<script>location.href = '../index.php';</script>");
   exit;
 }
 

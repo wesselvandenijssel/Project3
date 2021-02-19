@@ -23,7 +23,7 @@ $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.
 <body>
 <?php
 $id = $_GET['upd'];
-$sql_statement = "SELECT * FROM events";
+$sql_statement = "SELECT * FROM events WHERE nummer = $id";
 $result = mysqli_query($con, $sql_statement);
 while($row = mysqli_fetch_assoc($result)){
   $nummer = $row['nummer'];
@@ -42,6 +42,7 @@ while($row = mysqli_fetch_assoc($result)){
   $EventHuisnummer = $row['EventHuisnummer'];
   $EventPlaats = $row['EventPlaats'];
   $EventPostcode = $row['EventPostcode'];
+  //$query = "SELECT Plaatsen FROM `events` WHERE nummer = $id";
 }
   ?>
     <div class="container">
@@ -65,7 +66,7 @@ while($row = mysqli_fetch_assoc($result)){
                 <p><?php echo $EventStraat . " " . $EventHuisnummer;?></p>
             </div>
             <div class="column">
-                <p>Aantal plaatsen beschikbaar: <?php echo $Plaatsen;?></p>
+                <p>Aantal plaatsen beschikbaar: <?php echo $Plaatsen?></p>
                 <?php 
             if ($Plaatsen < 20){
             ?> <p style="color: red;">Wees er snel bij!</p>
@@ -101,10 +102,10 @@ while($row = mysqli_fetch_assoc($result)){
             <?php 
             if ($Plaatsen <= 0){
             ?> <p style="color: red;"><a  href="../index.php" type="button" value="Bestellen" placeholder="Bestellen">Uitverkocht!</a></p>
-            <?php
+            <?php 
             }
             else{
-            ?>
+            ?> 
                 <a  href="../factuur/index.php?upd=<?php echo $id?>" type="button" value="Bestellen" placeholder="Bestellen">Bestellen</a>
                 <?php
             }

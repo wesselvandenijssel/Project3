@@ -1,65 +1,36 @@
 <?php 
-session_start();  
+session_start();
+require 'assets/config/config.php';
 if(isset($_SESSION["User"])){
 }
 else{
-	//header("location:login");
-    echo("<script>location.href = 'login/index.php';</script>");
-    //exit;
+  echo("<script>location.href = 'login/index.php';</script>");
 }
-require 'assets/config/config.php';
 $query = "SELECT * FROM `gebruikers`";
 $result = mysqli_query($con, $query) or die('Cannot fetch data from database. '.mysqli_error($con));
 ?>
-
-<?php
-require_once('upload/config/connect.php');
-?>
-<!DOCTYPE html>
-<html lang='en'>
-
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset='utf-8'>
-    <meta name='description' content='Basic loginsystem'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='x-ua-compatible' content='ie=edge'>
-    <title>Basic Login System</title>
-    <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: lightblue;
-}
-</style>
+<title>event manager </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" >
 </head>
-
 <body>
-
-    <a href="login/index.php">login</a>
-    <a href="logout/logout.php">log out</a>
-    <a href="admin/admin.php">Admin</a>
-    <a href="upload/admin/upload.php">Upload</a>
-    <a href="upload/index.php">Foto's</a>
-    <a href="organisator/organisator.php">Organisator admin</a>
-    <a href="organisator/index.php">Organisator</a>
-    <a href="factuur">factuur</a><br>
-
-    
-    <div>
-<table>
-<th>Nummer</th><th>Organisatornaam</th><th>Events</th><th>foto</th><th>Begindatum</th><th>Einddatum</th><th>Begintijd</th><th>Eindtijd</th><th>Naam</th><th>Plaatsen</th><th>Prijs</th><th>Beschrijving</th><th>EventStraat</th><th>EventHuisnummer</th><th>EventPlaats</th><th>EventPostcode</th></tr>
-
-<?php
+<div id="doc" class="yui-t1">
+  <div id="hd">
+    <div id="header">
+       <h1 class="name">naam bedrijf<h1>
+       <a href="login/index.php" class="button">login</a>
+       <a href="register/register.php" class="regbutton">register</a>
+    </div>
+  </div>
+  <div id="bd">
+    <div id="">
+      <div class="yui-b">
+        <div class="content">       <div class="grid-container">
+        <?php
+require_once('upload/config/connect.php');
 $sql_statement = "SELECT * FROM events";
 $result = mysqli_query($con, $sql_statement);
 while($row = mysqli_fetch_assoc($result)){
@@ -79,16 +50,63 @@ while($row = mysqli_fetch_assoc($result)){
   $EventHuisnummer = $row['EventHuisnummer'];
   $EventPlaats = $row['EventPlaats'];
   $EventPostcode = $row['EventPostcode'];
-  
-  echo "<tr>" .  "<th>". $nummer . "</th>"."<th>". $Organisatornaam . "</th>". "<th>". $Events . "</th>". "<th>"?><a href= "details/index.php?upd=<?php echo $nummer;?>"> <img src='upload/assets/upload/<?php echo $foto;?>' alt="" style="height:300px;"/></a> <?php echo "" . "</th>". "<th>". $Begindatum . "</th>". "<th>". $Einddatum . "</th>". "<th>". $Begintijd . "</th>". "<th>". $Eindtijd . "</th>". "<th>". $Naam . "</th>". "<th>". $Plaatsen . "</th>". "<th>". $Prijs . "</th>". "<th>". $Beschrijving . "</th>". "<th>". $EventStraat . "</th>". "<th>". $EventHuisnummer . "</th>". "<th>". $EventPlaats . "</th>". "<th>". $EventPostcode . "</th>" . "</tr>";
-}
 ?>
-</table>
-
-    <?php
-	echo "Hallo,".$_SESSION["User"]
-	?>
-
+  <div class="card">
+  <?php if ($Plaatsen >= 1){ ?>
+  <a class="link" href= "details/index.php?upd=<?php echo $nummer;?>">
+  <div class="card-image"><img src='upload/assets/upload/<?php echo $foto;?>' alt="" style="height:200px; border-radius: 25px; margin: 10px;"/></a></div>
+  <div class="card-text">
+  <a class="link" href= "details/index.php?upd=<?php echo $nummer;?>">
+    <span class="date"><?php echo $Begindatum;?> - </span>   <span class="enddate"><?php echo $Einddatum;?></span>
+    <h2 class="title"><?php echo $Naam;?></h2>
+    <h3 clas="naam orginasator"><?php echo $Events;?></h3>
+     <h3 clas="naam orginasator"><?php echo $EventPlaats;?></h3>
+     <?php 
+            if ($Plaatsen <= 0){
+            ?> <div class="sold-out"> uitverkocht! </div>
+            <?php
+            }
+            else{
+            ?>
+                <div class="card-text"> beschikbaar! </div>
+                <a class="order" href= "details/index.php?upd=<?php echo $nummer;?>"> bestel een ticket </a>
+                <?php
+            }
+            ?>
+    <!--<div class="sold-out"> uit verkocht </div>
+    <a class="order"> bestel een ticket </a>-->
+    </a>
+  </div>
+</div>
+</a>
+<?php
+}
+else{ ?>
+  <div class="card-image"><img src='upload/assets/upload/<?php echo $foto;?>' alt="" style="height:200px; border-radius: 25px; margin: 10px;"/></div>
+  <div class="card-text">
+  <span class="date"><?php echo $Begindatum;?> - </span>   <span class="enddate"><?php echo $Einddatum;?></span>
+    <h2 class="title"><?php echo $Naam;?></h2>
+    <h3 clas="naam orginasator"><?php echo $Events;?></h3>
+     <h3 clas="naam orginasator"><?php echo $EventPlaats;?></h3>
+     <?php 
+            if ($Plaatsen <= 0){
+            ?> <div class="sold-out"> uitverkocht! </div>
+            <?php
+            }
+            else{
+            ?>
+                <div class="card-text"> beschikbaar! </div>
+                <a class="order" href= "details/index.php?upd=<?php echo $nummer;?>"> bestel een ticket </a>
+                <?php
+            }
+            ?>
+    <!--<div class="sold-out"> uit verkocht </div>
+    <a class="order"> bestel een ticket </a>-->
+    </a>
+  </div>
+</div>
+<?php
+}}
+?>
 </body>
-
 </html>
